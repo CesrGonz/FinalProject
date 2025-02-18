@@ -7,7 +7,7 @@ function Footer() {
 
 <footer className="shadow-sm bg-amber-100 pt-4">
     <div className="w-full max-w-screen-xl mx-auto  md:py-8">
-        <div className="sm:flex sm:items-center sm:justify-between">
+        <div className="sm:flex sm:items-center sm:justify-between" style={{fontFamily: 'Manrope, sans-serif'}}>
             <Icon/>
             <ul className="flex flex-wrap-reverse items-center mb-6 text-sm font-medium text-black sm:mb-0">
                 <li>
