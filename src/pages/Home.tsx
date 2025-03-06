@@ -25,10 +25,10 @@ const handleClickRegister = () =>{
           <h1 className="bg-amber-100 p-5 text-5xl font-bold text-black">Bienvenido a Invcontrol</h1>
         </div>
         <div>
-          <h1 className="text-2xl font-bold p-3 bg-amber-50 text-black">Una app para llevar control tus items <br/> y venderlos cuando quieras</h1>
+          <h1 className="text-2xl font-bold p-3 bg-amber-50 text-black">Una app para llevar control tus items y venderlos cuando quieras</h1>
           <div className='flex space-x-4 items-center justify-center m-5'>
-          <button className='p-3 bg-amber-300 hover:bg-amber-700' onClick={handleClickLogin} >Logeate</button>
-          <button className='p-3 bg-amber-300 hover:bg-amber-700' onClick={handleClickRegister}>Registrate</button>
+          <button className='p-5 bg-amber-300 hover:bg-amber-700 cursor-pointer font-bold' onClick={handleClickLogin}>Logeate</button>
+          <button className='p-5 bg-amber-300 hover:bg-amber-700 cursor-pointer font-bold' onClick={handleClickRegister}>Registrate</button>
           </div>
         </div>
         

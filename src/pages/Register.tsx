@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FormEvent, useState } from 'react';
 import backgroundImage from '../assets/bg-login.jpg'
-
+import { AuthService } from '../services/auth.Service';
 const Register: React.FC =() => {
   const [form, setForm] = useState({
     name: '',
@@ -8,9 +8,16 @@ const Register: React.FC =() => {
     password: ''
   });
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     console.log("Se envió el formulario", form.email);
+    try {
+      const data = await AuthService.registerUser(form);
+      console.log('Usuario registrado:', data);
+    } catch (error) {
+      console.error('Error al registrar usuario:', error);
+    }
+
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -21,7 +28,7 @@ const Register: React.FC =() => {
   return (
     <div
     className="relative inset-0 bg-black w-full  bg-cover bg-center flex items-center justify-center"
-    style={{ backgroundImage: `url(${backgroundImage})` }}
+    style={{ backgroundImage: `url(${backgroundImage})` ,  fontFamily: 'Manrope, sans-serif'}}
   >
     <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0 w-full rounded-lg  md:mt-0 sm:max-w-md xl:p-0">
       <div className="p-2 space-y-4 md:space-y-6 sm:p-8 text-black dark:bg-amber-100 rounded-2xl">

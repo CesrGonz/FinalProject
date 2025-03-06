@@ -1,8 +1,20 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Icon from '../assets/icon';
+import { AuthService } from '../services/auth.Service';
 
 function Navbar() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      await AuthService.logout();
+      navigate('/login'); // Redirigir a la página de inicio de sesión
+    } catch (error) {
+      console.error('Error al cerrar sesión:', error);
+    }
+  };
+
   return (
     <nav className="bg-amber-100 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600" style={{fontFamily: 'Manrope, sans-serif'}}>
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
@@ -36,7 +48,9 @@ function Navbar() {
             <li>
               <Link to="/Inventory" className="block py-2 px-3 text-black rounded-sm hover:bg-amber-200  md:p-0">Inventory</Link>
             </li>
-            
+            <li>
+              <button onClick={handleLogout} className="block py-2 px-3 text-black rounded-sm hover:bg-amber-200 md:p-0">Logout</button>
+            </li>
           </ul>
         </div>
       </div>
